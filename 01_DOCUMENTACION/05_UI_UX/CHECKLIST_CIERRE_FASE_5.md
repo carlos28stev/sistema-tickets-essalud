@@ -1,0 +1,12 @@
+# Checklist de cierre - Fase 5
+- [ ] Principios UI/UX revisados.
+- [ ] Sistema visual confirmado.
+- [ ] Pantallas del solicitante validadas.
+- [ ] Pantallas del técnico validadas.
+- [ ] Pantallas del administrador validadas.
+- [ ] Galería HTML abierta.
+- [ ] Componentes definidos.
+- [ ] Accesibilidad revisada.
+- [ ] Acta o conformidad obtenida.
+- [ ] Evidencias guardadas.
+- [ ] Cambios publicados en GitHub.

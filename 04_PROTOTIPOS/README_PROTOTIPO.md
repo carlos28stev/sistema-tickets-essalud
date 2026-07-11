@@ -1,0 +1,1 @@
+Abra `html/index.html` con Chrome o Edge. No requiere instalación ni servidor.
