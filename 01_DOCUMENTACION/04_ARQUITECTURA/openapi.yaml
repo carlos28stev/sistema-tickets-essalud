@@ -1,0 +1,189 @@
+openapi: 3.0.3
+info:
+  title: API Sistema de Tickets EsSalud
+  version: 1.0.0
+  description: API REST serverless para gestión de incidentes de soporte técnico.
+servers:
+  - url: https://REGION-PROJECT_ID.cloudfunctions.net/api
+security:
+  - bearerAuth: []
+tags:
+  - name: Auth
+  - name: Tickets
+  - name: Users
+  - name: Reports
+paths:
+  /health:
+    get:
+      security: []
+      summary: Verificar disponibilidad
+      responses:
+        '200':
+          description: Servicio disponible
+  /tickets:
+    post:
+      tags: [Tickets]
+      summary: Registrar ticket
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTicketRequest'
+      responses:
+        '201':
+          description: Ticket creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TicketResponse'
+        '400':
+          description: Datos inválidos
+        '401':
+          description: No autenticado
+    get:
+      tags: [Tickets]
+      summary: Listar tickets autorizados
+      parameters:
+        - in: query
+          name: status
+          schema: { type: string }
+        - in: query
+          name: priority
+          schema: { type: string }
+        - in: query
+          name: assignedTechnicianId
+          schema: { type: string }
+      responses:
+        '200':
+          description: Lista de tickets
+  /tickets/{ticketId}:
+    get:
+      tags: [Tickets]
+      summary: Obtener detalle
+      parameters:
+        - $ref: '#/components/parameters/TicketId'
+      responses:
+        '200': { description: Ticket encontrado }
+        '404': { description: No encontrado }
+  /tickets/{ticketId}/assign:
+    patch:
+      tags: [Tickets]
+      summary: Asignar o reasignar técnico
+      parameters:
+        - $ref: '#/components/parameters/TicketId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [technicianId]
+              properties:
+                technicianId: { type: string }
+                reason: { type: string }
+      responses:
+        '200': { description: Asignación actualizada }
+        '403': { description: Sin permisos }
+  /tickets/{ticketId}/status:
+    patch:
+      tags: [Tickets]
+      summary: Cambiar estado
+      parameters:
+        - $ref: '#/components/parameters/TicketId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [status]
+              properties:
+                status:
+                  type: string
+                  enum: [ABIERTO, ASIGNADO, EN_PROGRESO, PENDIENTE_INFORMACION, RESUELTO, CERRADO, CANCELADO]
+                comment: { type: string }
+                solution: { type: string }
+      responses:
+        '200': { description: Estado actualizado }
+        '409': { description: Transición inválida }
+  /tickets/{ticketId}/comments:
+    post:
+      tags: [Tickets]
+      summary: Registrar comentario
+      parameters:
+        - $ref: '#/components/parameters/TicketId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [content, type]
+              properties:
+                content: { type: string }
+                type:
+                  type: string
+                  enum: [PUBLIC, INTERNAL, SOLUTION]
+      responses:
+        '201': { description: Comentario creado }
+  /tickets/{ticketId}/classify:
+    post:
+      tags: [Tickets]
+      summary: Reclasificar ticket
+      parameters:
+        - $ref: '#/components/parameters/TicketId'
+      responses:
+        '200': { description: Clasificación actualizada }
+  /users:
+    post:
+      tags: [Users]
+      summary: Crear usuario
+      responses:
+        '201': { description: Usuario creado }
+    get:
+      tags: [Users]
+      summary: Listar usuarios
+      responses:
+        '200': { description: Lista de usuarios }
+  /reports/summary:
+    get:
+      tags: [Reports]
+      summary: Obtener KPIs generales
+      responses:
+        '200': { description: Resumen estadístico }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    TicketId:
+      in: path
+      name: ticketId
+      required: true
+      schema: { type: string }
+  schemas:
+    CreateTicketRequest:
+      type: object
+      required: [title, description, establishmentId, perceivedUrgency]
+      properties:
+        title: { type: string, minLength: 5, maxLength: 120 }
+        description: { type: string, minLength: 20, maxLength: 5000 }
+        establishmentId: { type: string }
+        perceivedUrgency:
+          type: string
+          enum: [HIGH, MEDIUM, LOW]
+        attachmentIds:
+          type: array
+          items: { type: string }
+    TicketResponse:
+      type: object
+      properties:
+        id: { type: string }
+        code: { type: string }
+        categoryId: { type: string }
+        priority: { type: string }
+        status: { type: string }
+        slaDueAt: { type: string, format: date-time }

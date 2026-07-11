@@ -1,0 +1,61 @@
+﻿Colección,Campo,Tipo,Restricción,Obligatorio,Descripción
+users,uid,string,PK logical,Sí,Identificador Firebase Auth.
+users,email,string,unique,Sí,Correo institucional o autorizado.
+users,displayName,string,,Sí,Nombre completo.
+users,role,string,SOLICITANTE|TECNICO|ADMIN,Sí,Rol RBAC.
+users,status,string,ACTIVE|INACTIVE,Sí,Estado de acceso.
+users,establishmentId,string,FK logical,Sí,Establecimiento asociado.
+users,createdAt,timestamp,,Sí,Fecha de creación.
+users,updatedAt,timestamp,,Sí,Última actualización.
+tickets,id,string,document id,Sí,Identificador Firestore.
+tickets,code,string,unique,Sí,"Código visible, ejemplo INC-2026-000001."
+tickets,requesterId,string,FK logical users,Sí,Usuario creador.
+tickets,assignedTechnicianId,string,FK logical users,No,Técnico asignado.
+tickets,establishmentId,string,FK logical establishments,Sí,Origen del incidente.
+tickets,title,string,5-120 chars,Sí,Resumen del problema.
+tickets,description,string,20-5000 chars,Sí,Descripción detallada.
+tickets,categoryId,string,FK logical categories,Sí,Categoría vigente.
+tickets,priority,string,CRITICAL|HIGH|MEDIUM|LOW,Sí,Prioridad vigente.
+tickets,status,string,workflow enum,Sí,Estado actual.
+tickets,classificationConfidence,number,0..1,No,Confianza del clasificador.
+tickets,classificationSource,string,RULES|NLP|MANUAL,Sí,Origen de clasificación.
+tickets,firstResponseAt,timestamp,,No,Primera respuesta.
+tickets,slaDueAt,timestamp,,Sí,Vencimiento de resolución.
+tickets,resolvedAt,timestamp,,No,Fecha de resolución.
+tickets,closedAt,timestamp,,No,Fecha de cierre.
+tickets,createdAt,timestamp,,Sí,Fecha de registro.
+tickets,updatedAt,timestamp,,Sí,Última modificación.
+ticketComments,ticketId,string,FK logical tickets,Sí,Ticket relacionado.
+ticketComments,authorId,string,FK logical users,Sí,Autor.
+ticketComments,type,string,PUBLIC|INTERNAL|SOLUTION,Sí,Tipo de comentario.
+ticketComments,content,string,1-5000 chars,Sí,Contenido.
+ticketComments,createdAt,timestamp,,Sí,Fecha.
+ticketHistory,ticketId,string,FK logical tickets,Sí,Ticket relacionado.
+ticketHistory,actorId,string,FK logical users,Sí,Usuario que realizó acción.
+ticketHistory,eventType,string,enum,Sí,Tipo de evento.
+ticketHistory,before,map,,No,Valor previo.
+ticketHistory,after,map,,No,Valor posterior.
+ticketHistory,createdAt,timestamp,,Sí,Fecha.
+categories,name,string,unique,Sí,Nombre de categoría.
+categories,keywords,array<string>,,No,Palabras clave.
+categories,defaultPriority,string,priority enum,Sí,Prioridad sugerida.
+categories,active,boolean,,Sí,Disponibilidad.
+slaPolicies,priority,string,unique,Sí,Prioridad.
+slaPolicies,firstResponseMinutes,number,>0,Sí,Tiempo de primera respuesta.
+slaPolicies,resolutionMinutes,number,>0,Sí,Tiempo de resolución.
+slaPolicies,active,boolean,,Sí,Política vigente.
+establishments,code,string,unique,Sí,Código institucional.
+establishments,name,string,,Sí,Nombre.
+establishments,type,string,,Sí,Tipo de establecimiento.
+establishments,active,boolean,,Sí,Estado.
+notifications,userId,string,FK logical users,Sí,Destinatario.
+notifications,ticketId,string,FK logical tickets,No,Ticket relacionado.
+notifications,type,string,enum,Sí,Tipo de notificación.
+notifications,read,boolean,,Sí,Leída.
+notifications,createdAt,timestamp,,Sí,Fecha.
+auditLogs,actorId,string,FK logical users,Sí,Actor.
+auditLogs,action,string,,Sí,Acción.
+auditLogs,resource,string,,Sí,Recurso.
+auditLogs,resourceId,string,,Sí,Id afectado.
+auditLogs,metadata,map,,No,Detalle técnico.
+auditLogs,createdAt,timestamp,,Sí,Fecha.
