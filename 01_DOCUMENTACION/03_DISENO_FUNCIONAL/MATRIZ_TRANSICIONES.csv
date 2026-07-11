@@ -1,0 +1,10 @@
+﻿Origen,Destino,Evento,Rol autorizado
+"ABIERTO","ASIGNADO","Asignación de técnico","Administrador/Técnico autorizado"
+"ABIERTO","CANCELADO","Anulación justificada","Administrador"
+"ASIGNADO","EN_PROGRESO","Inicio de atención","Técnico asignado"
+"ASIGNADO","CANCELADO","Anulación justificada","Administrador"
+"EN_PROGRESO","PENDIENTE_INFORMACION","Solicitud de datos","Técnico"
+"PENDIENTE_INFORMACION","EN_PROGRESO","Recepción de información","Técnico"
+"EN_PROGRESO","RESUELTO","Registro de solución","Técnico"
+"RESUELTO","CERRADO","Confirmación o cierre formal","Solicitante/Administrador"
+"PENDIENTE_INFORMACION","CANCELADO","Imposibilidad justificada","Administrador"

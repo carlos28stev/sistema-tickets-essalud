@@ -1,0 +1,13 @@
+﻿Codigo,Caso de uso,Actor,Objetivo
+"CU-01","Iniciar sesión","Solicitante/Técnico/Administrador","Autenticar y dirigir al panel correspondiente."
+"CU-02","Registrar ticket","Solicitante","Crear un incidente con datos obligatorios."
+"CU-03","Consultar tickets","Solicitante/Técnico/Administrador","Visualizar lista, filtros y detalle autorizado."
+"CU-04","Clasificar ticket","Sistema","Asignar categoría, prioridad y confianza."
+"CU-05","Asignar técnico","Técnico/Administrador","Definir responsable del ticket."
+"CU-06","Gestionar estado","Técnico/Administrador","Actualizar el ciclo de atención."
+"CU-07","Registrar comentarios","Técnico","Documentar diagnóstico y acciones."
+"CU-08","Registrar solución","Técnico","Formalizar la resolución."
+"CU-09","Gestionar usuarios","Administrador","Crear, editar, activar y asignar roles."
+"CU-10","Configurar catálogos y SLA","Administrador","Mantener reglas operativas."
+"CU-11","Consultar reportes","Jefatura","Analizar indicadores y desempeño."
+"CU-12","Auditar operaciones","Jefatura/Administrador","Revisar historial de acciones críticas."
