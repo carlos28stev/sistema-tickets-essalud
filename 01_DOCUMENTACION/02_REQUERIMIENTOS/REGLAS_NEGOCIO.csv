@@ -1,0 +1,21 @@
+﻿Código,Regla
+RN-001,Todo ticket debe pertenecer a un usuario solicitante autenticado.
+RN-002,Todo ticket nuevo inicia con estado ABIERTO.
+RN-003,El código del ticket debe ser único y no reutilizable.
+RN-004,"Solo un administrador puede crear, desactivar o cambiar el rol de otros usuarios."
+RN-005,Un usuario desactivado no puede acceder al sistema.
+RN-006,Solo técnicos y administradores pueden modificar la gestión operativa de un ticket.
+RN-007,Un ticket RESUELTO debe contener una solución registrada.
+RN-008,Todo cambio de estado debe generar un registro en el historial.
+RN-009,"Toda asignación o reasignación debe registrar responsable, fecha y motivo cuando corresponda."
+RN-010,La prioridad automática puede ser corregida por personal autorizado.
+RN-011,La categoría automática puede ser corregida por personal autorizado.
+RN-012,La corrección manual debe conservar la clasificación original para auditoría.
+RN-013,El SLA se calcula con base en la prioridad vigente del ticket.
+RN-014,Un ticket vencido debe identificarse visualmente.
+RN-015,"El solicitante solo puede ver los tickets creados por él, salvo permisos adicionales."
+RN-016,El técnico puede ver los tickets asignados y los autorizados por la política operativa.
+RN-017,El administrador puede consultar todos los tickets y configuraciones.
+RN-018,Los archivos adjuntos deben cumplir tipos y tamaños permitidos.
+RN-019,No se deben adjuntar documentos con información clínica o datos sensibles de pacientes.
+RN-020,Las eliminaciones lógicas deben conservar trazabilidad cuando aplique.

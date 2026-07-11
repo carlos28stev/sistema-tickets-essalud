@@ -1,0 +1,37 @@
+﻿Código,Módulo,Requerimiento,Prioridad
+RF-001,Autenticación,El sistema permitirá iniciar sesión mediante correo y contraseña.,Alta
+RF-002,Autenticación,El sistema permitirá cerrar la sesión activa.,Alta
+RF-003,Autenticación,El sistema permitirá solicitar el restablecimiento de contraseña.,Media
+RF-004,Seguridad,El sistema restringirá las opciones según el rol del usuario.,Alta
+RF-005,Usuarios,"El administrador podrá registrar usuarios solicitantes, técnicos y administradores.",Alta
+RF-006,Usuarios,El administrador podrá editar los datos de un usuario.,Media
+RF-007,Usuarios,El administrador podrá activar o desactivar usuarios.,Media
+RF-008,Usuarios,El administrador podrá asignar o modificar roles.,Alta
+RF-009,Establecimientos,El administrador podrá gestionar el catálogo de establecimientos y unidades.,Media
+RF-010,Tickets,El solicitante podrá registrar un ticket de soporte.,Alta
+RF-011,Tickets,"El formulario exigirá título, descripción, establecimiento y urgencia percibida.",Alta
+RF-012,Tickets,El sistema generará un código único para cada ticket.,Alta
+RF-013,Tickets,"El sistema registrará automáticamente fecha, hora y usuario creador.",Alta
+RF-014,Tickets,El usuario podrá adjuntar evidencias permitidas al ticket.,Media
+RF-015,Tickets,El solicitante podrá visualizar sus tickets y su estado.,Alta
+RF-016,Tickets,El usuario podrá consultar el detalle e historial visible de un ticket.,Alta
+RF-017,Clasificación,El sistema clasificará automáticamente el ticket por categoría.,Alta
+RF-018,Clasificación,El sistema propondrá una prioridad automática.,Alta
+RF-019,Clasificación,El sistema almacenará el nivel de confianza y origen de la clasificación.,Media
+RF-020,Clasificación,El técnico o administrador podrá corregir la categoría y prioridad.,Alta
+RF-021,Asignación,"El sistema podrá sugerir un técnico según categoría, especialidad y carga.",Media
+RF-022,Asignación,El administrador o técnico autorizado podrá asignar o reasignar tickets.,Alta
+RF-023,Gestión,El técnico visualizará los tickets asignados en una vista Kanban.,Alta
+RF-024,Gestión,El técnico podrá cambiar el estado del ticket.,Alta
+RF-025,Gestión,El técnico podrá registrar comentarios y notas técnicas.,Alta
+RF-026,Gestión,El técnico podrá registrar la solución aplicada.,Alta
+RF-027,Gestión,"El sistema almacenará el historial de cambios de estado, asignación y clasificación.",Alta
+RF-028,SLA,El sistema calculará la fecha límite según prioridad y política SLA.,Alta
+RF-029,SLA,El sistema mostrará alertas visuales para tickets próximos a vencer o vencidos.,Media
+RF-030,Notificaciones,El sistema notificará eventos relevantes del ticket.,Media
+RF-031,Reportes,La jefatura podrá consultar indicadores generales de tickets.,Media
+RF-032,Reportes,"La jefatura podrá filtrar reportes por fecha, estado, prioridad, categoría, técnico y establecimiento.",Media
+RF-033,Reportes,El sistema mostrará el tiempo medio de primera respuesta y resolución.,Media
+RF-034,Reportes,El sistema permitirá exportar reportes en formatos disponibles.,Baja
+RF-035,Auditoría,El sistema registrará operaciones críticas en una bitácora.,Alta
+RF-036,Configuración,"El administrador podrá gestionar categorías, prioridades y políticas SLA.",Media

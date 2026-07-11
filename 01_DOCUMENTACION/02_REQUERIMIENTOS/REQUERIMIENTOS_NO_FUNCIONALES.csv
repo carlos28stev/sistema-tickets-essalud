@@ -1,0 +1,16 @@
+﻿Código,Categoría,Requerimiento,Prioridad
+RNF-001,Seguridad,"Todo acceso requerirá autenticación, salvo recuperación de contraseña.",Alta
+RNF-002,Seguridad,Las credenciales no se almacenarán en texto plano.,Alta
+RNF-003,Seguridad,El acceso a datos se controlará mediante roles y reglas de Firestore.,Alta
+RNF-004,Privacidad,No se almacenarán datos clínicos ni historias médicas en los tickets.,Alta
+RNF-005,Rendimiento,Las operaciones comunes deberán responder en un tiempo objetivo menor a 3 segundos bajo carga normal.,Media
+RNF-006,Disponibilidad,La aplicación estará disponible mediante infraestructura cloud administrada.,Media
+RNF-007,Usabilidad,La interfaz será responsive y compatible con navegadores modernos.,Alta
+RNF-008,Usabilidad,Los formularios mostrarán validaciones y mensajes comprensibles.,Alta
+RNF-009,Escalabilidad,El backend utilizará funciones serverless con escalado automático.,Media
+RNF-010,Mantenibilidad,El código se organizará por módulos y responsabilidades.,Media
+RNF-011,Auditabilidad,"Los cambios relevantes conservarán usuario, fecha, hora y valores modificados.",Alta
+RNF-012,Compatibilidad,"El sistema funcionará en Chrome, Edge y Firefox recientes.",Media
+RNF-013,Respaldo,Los datos se almacenarán en servicios administrados con mecanismos de durabilidad.,Media
+RNF-014,Trazabilidad,Cada requisito se relacionará con historias de usuario y casos de prueba.,Alta
+RNF-015,Calidad,Las funciones críticas contarán con pruebas unitarias e integración progresiva.,Media
