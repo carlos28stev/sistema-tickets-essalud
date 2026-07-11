@@ -1,0 +1,9 @@
+Codigo,Problema,Causa,Consecuencia,Oportunidad
+"P-01","Recepción por canales dispersos","No existe un punto único de registro.","Pérdida de información y reportes duplicados.","Formulario web centralizado."
+"P-02","Clasificación manual","No existen reglas ni asistencia automática.","Errores de categoría y derivaciones.","Clasificación automática NLP/reglas."
+"P-03","Priorización subjetiva","Urgencia definida según percepción.","Incidentes críticos pueden retrasarse.","Matriz de prioridad y SLA."
+"P-04","Asignación informal","No se controla especialidad ni carga.","Distribución inequitativa del trabajo.","Asignación por especialidad y disponibilidad."
+"P-05","Seguimiento insuficiente","No existe estado centralizado.","El usuario desconoce el avance.","Estados, historial y notificaciones."
+"P-06","Sin historial consolidado","Soluciones quedan en chats o memoria del técnico.","Se repiten diagnósticos y acciones.","Repositorio de tickets y soluciones."
+"P-07","Ausencia de indicadores","No hay datos estructurados.","La jefatura no mide MTTR ni cumplimiento.","Dashboard y reportes estadísticos."
+"P-08","Falta de auditoría","Los cambios no quedan registrados.","Dificultad para determinar responsabilidades.","Bitácora automática de eventos."
