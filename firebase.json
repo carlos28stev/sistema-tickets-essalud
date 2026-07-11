@@ -1,0 +1,23 @@
+{
+  "hosting": {
+    "public": "05_CODIGO_FUENTE/frontend/dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "functions": {
+    "source": "05_CODIGO_FUENTE/functions"
+  },
+  "firestore": {
+    "rules": "05_CODIGO_FUENTE/firebase/firestore.rules",
+    "indexes": "05_CODIGO_FUENTE/firebase/firestore.indexes.json"
+  }
+}
