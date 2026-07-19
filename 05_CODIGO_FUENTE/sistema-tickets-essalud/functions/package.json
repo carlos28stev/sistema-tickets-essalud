@@ -1,0 +1,1 @@
+{"name":"tickets-functions","private":true,"main":"lib/index.js","engines":{"node":"22"},"scripts":{"build":"tsc","seed":"npm run build && node lib/seed-emulator.js"},"dependencies":{"firebase-admin":"latest","firebase-functions":"latest"},"devDependencies":{"typescript":"latest"}}

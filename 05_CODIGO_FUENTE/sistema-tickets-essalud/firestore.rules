@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn(){ return request.auth != null; }
+    function profile(){ return get(/databases/$(database)/documents/users/$(request.auth.uid)).data; }
+    function active(){ return signedIn() && profile().status == 'ACTIVE'; }
+    function roleIs(r){ return active() && profile().role == r; }
+    function admin(){ return roleIs('ADMIN'); }
+    function technical(){ return roleIs('TECNICO') || admin(); }
+
+    match /users/{uid} {
+      allow read: if active() && (request.auth.uid == uid || technical());
+      allow create, update: if admin();
+      allow delete: if false;
+    }
+    match /tickets/{id} {
+      allow create: if active() && request.resource.data.requesterId == request.auth.uid && request.resource.data.status == 'ABIERTO';
+      allow read: if active() && (technical() || resource.data.requesterId == request.auth.uid);
+      allow update: if technical();
+      allow delete: if false;
+    }
+    match /ticketComments/{id} {
+      allow read: if active();
+      allow create: if active() && request.resource.data.authorId == request.auth.uid;
+      allow update, delete: if false;
+    }
+    match /ticketHistory/{id} {
+      allow read: if active();
+      allow create: if technical() || (active() && request.resource.data.eventType == 'TICKET_CREATED');
+      allow update, delete: if false;
+    }
+    match /categories/{id} { allow read: if active(); allow write: if admin(); }
+    match /{document=**} { allow read, write: if false; }
+  }
+}
